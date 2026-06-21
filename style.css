@@ -1,0 +1,797 @@
+/* ==========================================
+   DESIGN SYSTEM & VARIABLES
+   ========================================== */
+:root {
+  --primary: #00CC83;       /* Official InAmigos Green */
+  --primary-hover: #00a369;
+  --secondary: #222740;     /* Official Navy Blue */
+  --bg-dark: #1E1F26;       /* Dark Background (Footer) */
+  --bg-light: #f8fafc;      /* Soft Light Gray Background */
+  --text-dark: #1e293b;     /* Slate Dark Text */
+  --text-muted: #64748b;    /* Slate Muted Text */
+  --text-light: #ffffff;
+  --accent: #f59e0b;        /* Warm Amber */
+  --border-radius: 12px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+}
+
+/* ==========================================
+   RESET & BASE STYLES
+   ========================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-dark);
+  background-color: #ffffff;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: var(--secondary);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section-padding {
+  padding: 80px 0;
+}
+
+.grid {
+  display: grid;
+  gap: 32px;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.align-center {
+  align-items: center;
+}
+
+/* Typography Utilities */
+.section-subtitle {
+  text-transform: uppercase;
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 2px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.section-desc {
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 12px auto 48px auto;
+  font-size: 16px;
+}
+
+.text-emerald {
+  color: var(--primary);
+}
+
+.text-yellow {
+  color: var(--accent);
+}
+
+/* ==========================================
+   BUTTONS
+   ========================================== */
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: var(--transition);
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--text-light);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--text-light);
+  border-color: var(--text-light);
+}
+
+.btn-secondary:hover {
+  background-color: var(--text-light);
+  color: var(--secondary);
+  transform: translateY(-2px);
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+/* ==========================================
+   HEADER & NAVIGATION
+   ========================================== */
+.header {
+  position: sticky;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  z-index: 1000;
+  transition: var(--transition);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--primary);
+}
+
+.logo-text {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--secondary);
+}
+
+.accent-text {
+  color: var(--primary);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-link {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--secondary);
+}
+
+.nav-link:hover {
+  color: var(--primary);
+}
+
+.btn-donate {
+  background-color: var(--primary);
+  color: var(--text-light);
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.btn-donate:hover {
+  background-color: var(--secondary);
+  color: var(--text-light);
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: var(--secondary);
+  cursor: pointer;
+}
+
+/* ==========================================
+   HERO SECTION
+   ========================================== */
+.hero {
+  position: relative;
+  background-image: url('Img 1');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  color: var(--text-light);
+  padding-top: 80px; /* Offset for header */
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(34, 39, 64, 0.9) 0%, rgba(30, 31, 38, 0.75) 100%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 750px;
+}
+
+.hero .badge {
+  background-color: rgba(0, 204, 131, 0.2);
+  color: var(--primary);
+  border: 1px solid rgba(0, 204, 131, 0.4);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  display: inline-block;
+  margin-bottom: 24px;
+}
+
+.hero h1 {
+  font-size: clamp(36px, 6vw, 64px);
+  color: var(--text-light);
+  margin-bottom: 24px;
+  line-height: 1.15;
+}
+
+.hero h1 .highlight {
+  color: var(--primary);
+}
+
+.hero p {
+  font-size: clamp(16px, 2.5vw, 19px);
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 40px;
+  font-weight: 400;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+}
+
+/* ==========================================
+   ABOUT SECTION
+   ========================================== */
+.about {
+  background-color: #ffffff;
+}
+
+.about h2 {
+  font-size: clamp(28px, 4vw, 38px);
+  margin-bottom: 20px;
+}
+
+.about p {
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.certifications {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.cert-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+  color: var(--secondary);
+}
+
+.about-image-wrapper {
+  position: relative;
+}
+
+.about-img {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-lg);
+}
+
+.experience-badge {
+  position: absolute;
+  bottom: -20px;
+  left: -20px;
+  background-color: var(--primary);
+  color: var(--text-light);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.experience-badge .num {
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.experience-badge .txt {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* ==========================================
+   PROJECTS SECTION
+   ========================================== */
+.projects {
+  background-color: var(--bg-light);
+}
+
+.projects h2 {
+  font-size: clamp(28px, 4vw, 38px);
+}
+
+.card-grid {
+  margin-top: 48px;
+}
+
+.project-card {
+  background-color: #ffffff;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+.card-img-container {
+  height: 220px;
+  overflow: hidden;
+  position: relative;
+}
+
+.card-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.project-card:hover .card-img-container img {
+  transform: scale(1.08);
+}
+
+.card-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-content h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.tag-project {
+  display: inline-block;
+  align-self: flex-start;
+  background-color: rgba(0, 204, 131, 0.1);
+  color: var(--primary-hover);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+}
+
+.card-content p:not(.tag-project) {
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ==========================================
+   IMPACT METRICS SECTION
+   ========================================== */
+.impact {
+  background-color: var(--secondary);
+  color: var(--text-light);
+}
+
+.impact h2 {
+  color: var(--text-light);
+  font-size: clamp(28px, 4vw, 38px);
+}
+
+.impact-grid {
+  margin-top: 48px;
+}
+
+.impact-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+}
+
+.icon-circle {
+  width: 70px;
+  height: 70px;
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: var(--primary);
+  margin-bottom: 20px;
+  transition: var(--transition);
+}
+
+.impact-item:hover .icon-circle {
+  background-color: var(--primary);
+  color: var(--text-light);
+  transform: rotateY(180deg);
+}
+
+.stat-number {
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--text-light);
+  margin-bottom: 4px;
+}
+
+.impact-item p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* ==========================================
+   VOLUNTEER SECTION
+   ========================================== */
+.volunteer {
+  background-color: #ffffff;
+}
+
+.volunteer h2 {
+  font-size: clamp(28px, 4vw, 38px);
+  margin-bottom: 20px;
+}
+
+.volunteer p {
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.benefit-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.benefit-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+  color: var(--secondary);
+}
+
+.volunteer-form-card {
+  background-color: #ffffff;
+  border-radius: var(--border-radius);
+  padding: 40px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.volunteer-form-card h3 {
+  font-size: 22px;
+  margin-bottom: 24px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--secondary);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+  transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(0, 204, 131, 0.15);
+}
+
+/* ==========================================
+   FOOTER SECTION
+   ========================================== */
+.footer {
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  padding-top: 80px;
+}
+
+.footer-grid {
+  padding-bottom: 60px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-col h3 {
+  color: var(--text-light);
+  font-size: 22px;
+  margin-bottom: 16px;
+}
+
+.footer-col h4 {
+  color: var(--primary);
+  font-size: 18px;
+  margin-bottom: 24px;
+}
+
+.footer-col p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.reg-info {
+  margin-top: 16px;
+  font-size: 12px !important;
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.links-col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.links-col a {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+}
+
+.links-col a:hover {
+  color: var(--primary);
+  padding-left: 6px;
+}
+
+.contact-col p {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.contact-col p a:hover {
+  color: var(--primary);
+}
+
+.social-icons {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.social-icons a {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.06);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-light);
+  font-size: 16px;
+  transition: var(--transition);
+}
+
+.social-icons a:hover {
+  background-color: var(--primary);
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  padding: 30px 0;
+  background-color: #16171c;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 13px;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN (MEDIA QUERIES)
+   ========================================== */
+
+/* Medium Devices (Tablets, 991px and down) */
+@media (max-width: 991px) {
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .about-image-wrapper {
+    margin-top: 40px;
+  }
+  
+  .volunteer-form-card {
+    padding: 30px;
+  }
+}
+
+/* Small Devices (Mobiles, 768px and down) */
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 60px 0;
+  }
+  
+  .grid-2, .grid-3, .grid-4 {
+    grid-template-columns: 1fr;
+  }
+  
+  .nav-toggle {
+    display: block;
+  }
+  
+  .nav-links {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    flex-direction: column;
+    padding: 24px;
+    gap: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: var(--shadow-md);
+    display: none;
+  }
+  
+  .nav-links.active {
+    display: flex;
+  }
+  
+  .btn-donate {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .hero {
+    min-height: auto;
+    padding: 120px 0 80px 0;
+  }
+  
+  .hero-actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .about-img {
+    height: 300px;
+  }
+  
+  .experience-badge {
+    bottom: -10px;
+    left: 10px;
+    padding: 12px;
+  }
+  
+  .experience-badge .num {
+    font-size: 28px;
+  }
+  
+  .experience-badge .txt {
+    font-size: 11px;
+  }
+  
+  .footer-grid {
+    gap: 40px;
+  }
+}
